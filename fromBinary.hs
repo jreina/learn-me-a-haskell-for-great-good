@@ -7,5 +7,7 @@ vectorize str = zip str (getIndices (length str))
 getBitVals :: [Char] -> [Integer]
 getBitVals str = map (\(a, b) -> if a == '0' then 0 else 2^b) (vectorize str)
 
-getBigAssNum :: [Char] -> Integer
-getBigAssNum str = sum (getBitVals str)
+-- Converts a "binary" string like "1010011010" 
+-- into an integer like 666
+fromBinary :: [Char] -> Integer
+fromBinary str = sum (getBitVals str)
